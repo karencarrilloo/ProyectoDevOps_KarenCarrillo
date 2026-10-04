@@ -1,0 +1,21 @@
+# Pipeline de Integracion Continua (CI) para Node.js
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '20.x'
+    displayName: 'Instalar Node.js 20'
+
+  - script: npm install
+    displayName: 'Instalacion de dependencias (npm install)'
+
+  - script: npm run build
+    displayName: 'Compilacion (npm run build)'
+
+  - script: npm test
+    displayName: 'Pruebas automaticas (npm test)'

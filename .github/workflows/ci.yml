@@ -1,0 +1,29 @@
+# Pipeline de Integracion Continua (CI) con GitHub Actions
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el codigo
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Instalacion de dependencias
+        run: npm install
+
+      - name: Compilacion
+        run: npm run build
+
+      - name: Pruebas automaticas
+        run: npm test

@@ -1,0 +1,11 @@
+{
+  "name": "proyecto-devops",
+  "version": "1.0.0",
+  "description": "Proyecto de ejemplo para practicar integracion continua con Azure DevOps",
+  "main": "app.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node --test"
+  },
+  "license": "ISC"
+}
